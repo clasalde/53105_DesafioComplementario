@@ -12,7 +12,7 @@ const renderProductos = (productos) => {
         const card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML = `
-                <p>ID ${item.id} </p>
+                <p>ID ${item._id} </p>
                 <p class="bold">${item.title} </p>
                 <p>${item.description} </p><br>
                 <p class="bold big">$ ${item.price} </p>
@@ -21,7 +21,7 @@ const renderProductos = (productos) => {
         productContainer.appendChild(card);
 
         card.querySelector("button").addEventListener("click", () => {
-            eliminarProducto(item.id);
+            eliminarProducto(item._id);
         });
     });
 }

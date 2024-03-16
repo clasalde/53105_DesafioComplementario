@@ -2,7 +2,7 @@ import { Router } from "express";
 import ProductManager from "../controllers/product-manager.js";
 
 const router = Router();
-const productManager = new ProductManager("./src/models/products.json");
+const productManager = new ProductManager();
 
 router.get("/", async (req, res) => {
 
@@ -26,7 +26,7 @@ router.get("/:pid", async (req, res) => {
 
     try {
         const product = await productManager.getProductById(parseInt(id));
-        if (!product) {
+        if (!product) { 
             return res.json({ error: "Product NOT FOUND" });
         }
         res.json(product);

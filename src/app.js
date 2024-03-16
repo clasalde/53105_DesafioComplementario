@@ -7,6 +7,7 @@ import productsRouter from "./routes/products.router.js";
 import cartsRouter from "./routes/carts.router.js";
 import viewsRouter from "./routes/views.router.js";
 import multer from "multer";
+import "./database.js";
 
 const app = express();
 const server = http.createServer(app);

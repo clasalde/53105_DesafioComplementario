@@ -1,8 +1,8 @@
 import { Router } from "express";
 import CartManager from "../controllers/cart-manager.js";
+const cartManager = new CartManager();
 
 const router = Router();
-const cartManager = new CartManager("./src/models/carts.json");
 
 router.post("/", async (req, res) => {
     try {
@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/:cid", async (req, res) => {
-    const cartId = parseInt(req.params.cid);
+    const cartId = parseInt(req.params.cid); //ojo el parse
 
     try {
         const cart = await cartManager.getCartById(cartId);
@@ -28,7 +28,7 @@ router.get("/:cid", async (req, res) => {
 
 
 router.post("/:cid/product/:pid", async (req, res) => {
-    const cartId = parseInt(req.params.cid);
+    const cartId = parseInt(req.params.cid); //ojo el parse
     const productId = req.params.pid;
     const quantity = req.body.quantity || 1;
 
