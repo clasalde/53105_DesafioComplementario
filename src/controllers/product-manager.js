@@ -53,7 +53,6 @@ class ProductManager {
         console.log("Product NOT FOUND on DB");
         return null;
       }
-
       console.log("Product FOUND");
       return product;
     } catch (error) {

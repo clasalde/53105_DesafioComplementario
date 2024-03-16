@@ -51,7 +51,7 @@ server.listen(PUERTO, () => {
 });
 
 //Real Time Server
-const productManager = new ProductManager("./src/models/products.json");
+const productManager = new ProductManager();
 
 io.on("connection", async (socket) => {
     console.log("New client connected");

@@ -25,7 +25,7 @@ router.get("/:pid", async (req, res) => {
     const id = req.params.pid;
 
     try {
-        const product = await productManager.getProductById(parseInt(id));
+        const product = await productManager.getProductById(id);
         if (!product) { 
             return res.json({ error: "Product NOT FOUND" });
         }
@@ -53,7 +53,7 @@ router.put("/:pid", async (req, res) => {
     const updatedProduct = req.body;
 
     try {
-        await productManager.updateProduct(parseInt(id), updatedProduct);
+        await productManager.updateProduct(id, updatedProduct);
         res.json({ message: "Product updated successfully" });
     } catch (error) {
         console.error("Error while updating product", error);
@@ -65,7 +65,7 @@ router.delete("/:pid", async (req, res) => {
     const id = req.params.pid;
 
     try {
-        await productManager.deleteProduct(parseInt(id));
+        await productManager.deleteProduct(id);
         res.json({ message: "Product deleted successfully" });
     } catch (error) {
         console.error("Error while deleting product", error);
