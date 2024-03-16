@@ -8,7 +8,13 @@ const router = Router();
 router.get("/", async (req, res) => {
     try {
         const products = await productManager.getProducts();
-        res.render("home", { title: "Home Page", products: products })
+
+        const newProductListForExphbs = products.map( product => {
+            const {...rest} = product.toObject();
+            return rest;
+        })
+
+        res.render("home", { title: "Home Page", products: newProductListForExphbs })
     } catch (error) {
         console.log("Error while retrieving product list", error);
         res.status(500).json({ error: "Internal Server Error" });
