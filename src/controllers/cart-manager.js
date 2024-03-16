@@ -20,7 +20,7 @@ class CartManager {
                 console.log("No cart found with that ID");
                 return null;
             }
-            return carrito;
+            return cart;
         } catch (error) {
             console.log("Error while getting cart by ID", error);
             throw error;
